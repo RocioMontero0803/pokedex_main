@@ -1,0 +1,13 @@
+.App {
+    text-align: center;
+    
+}
+
+input {
+    box-sizing: border-box;
+    font-size: 2rem;
+    padding: 1rem;
+    display: block;
+    margin: 2rem auto;
+
+}
