@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react"; // useEffect
 import "./App.css";
 import axios from "axios";
 
@@ -11,17 +11,20 @@ const App = () => {
     const toArray = []; //array
     try {
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;//get indivdual pokemon from api
-      const res = await axios.get(url)
+      const res = await axios.get(url);
+      toArray.push(res.data);
+      setPokemonType(res.data.types[0].type.name)
+      setPokemonData(toArray);
       console.log(res);
     }catch (e) { //error
       console.log(e);
     }
   };
 
-  useEffect(() => {
+ /* useEffect(() => {
     getPokemon();
   }, [])
-
+*/
   /*useEffect (() => {
     axios.get('http://pokeapi.co/api/v2/pokemon')
       .then((response) => {
@@ -49,7 +52,32 @@ const handleSubmit = (e) => {
           <input type="text" onChange={handleChange} placeholder = "Enter Pokemon Name"/>
         </label>
       </form>
-      
+      {pokemonData.map((data) => {
+        return(
+          <div className ="container">
+           <img src={data.sprites["front_default"]} alt="pokemon" />
+            <div className="divTable">
+              <div className="divTableBody"></div>
+              <div className="divTableRow">
+                <div className="divTableCell">Type</div>
+                <div className="divTableCell">{pokemonType}</div>
+              </div>
+              <div className="divTableRow">
+                <div className="divTableCell">Height</div>
+                <div className="divTableCell">{" "}{Math.round(data.height * 3.9)}"in</div>
+              </div>
+              <div className="divTableRow">
+                <div className="divTableCell">Weight</div>
+                <div className="divTableCell">{" "} {Math.round(data.weight / 4.3)} lbs</div>
+              </div>
+              <div className="divTableRow">
+                <div className="divTableCell">Number of Battles</div>
+                <div className="divTableCell">{data.game_indices.length}</div>
+              </div>
+              </div>
+           </div>
+        )
+      })}
     </div>
   );
 };
