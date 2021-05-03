@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(159, 221, 200);
 }
 
 code {
@@ -12,3 +13,56 @@ code {
     monospace;
 }
 
+.header {
+  padding: 10px;
+  text-align: center;
+  background: #e64f14;
+  color: white;
+  font-size: 80%;
+}
+
+.divTable{
+  display: table;
+  max-width: 20em;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.divTableRow{
+  display: table-row;
+}
+
+.divTableHeading{
+  background-color: #eee;
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.divTableCell,
+.divTablehead{
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 3px 10px;
+}
+
+.divTableFoot{
+  background-color: #eee;
+  display: table-footer-group;
+  font-weight: bold;
+
+}
+.divTableBody{
+  display: table-row-group ;
+}
+
+.divTableCell:nth-child(ln){
+  background-color: gainsboro;
+}
+
+.container{
+  display: flex;
+  opacity: 0.9;
+  background-color: rgb(159, 221, 200);
+  justify-content: center;
+}

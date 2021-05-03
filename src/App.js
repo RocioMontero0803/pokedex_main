@@ -28,7 +28,6 @@ const App = () => {
   /*useEffect (() => {
     axios.get('http://pokeapi.co/api/v2/pokemon')
       .then((response) => {
-
       })
       .catch((err) => {
         console.log(err)
@@ -57,7 +56,7 @@ const handleSubmit = (e) => {
           <div className ="container">
            <img src={data.sprites["front_default"]} alt="pokemon" />
             <div className="divTable">
-              <div className="divTableBody"></div>
+              <div className="divTableBody">
               <div className="divTableRow">
                 <div className="divTableCell">Type</div>
                 <div className="divTableCell">{pokemonType}</div>
@@ -70,9 +69,6 @@ const handleSubmit = (e) => {
                 <div className="divTableCell">Weight</div>
                 <div className="divTableCell">{" "} {Math.round(data.weight / 4.3)} lbs</div>
               </div>
-              <div className="divTableRow">
-                <div className="divTableCell">Number of Battles</div>
-                <div className="divTableCell">{data.game_indices.length}</div>
               </div>
               </div>
            </div>
