@@ -63,6 +63,10 @@ code {
 .container{
   display: flex;
   opacity: 0.9;
-  background-color: rgb(159, 221, 200);
   justify-content: center;
+  display: inline-block;
+}
+img {
+  width: 100%;
+  height: auto;
 }

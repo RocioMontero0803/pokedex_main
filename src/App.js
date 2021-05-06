@@ -1,6 +1,10 @@
 import React, { useState } from "react"; // useEffect
 import "./App.css";
+import { Typography, Card, CardContent, Grid  } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
+
+
 
 const App = () => {
   const [pokemon, setPokemon] = useState("pikachu");
@@ -42,6 +46,13 @@ const handleSubmit = (e) => {
   e.preventDefault();
   getPokemon();
 }
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 500,
+  }
+}); 
+const classes = useStyles();
+
 
 
   return (
@@ -53,14 +64,28 @@ const handleSubmit = (e) => {
       </form>
       {pokemonData.map((data) => {
         return(
+
+          <Grid
+            container
+            spacing={0}
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: "25vh" }}>
+
+          <Card className={classes.root} variant="outlined">
+          <CardContent>
           <div className ="container">
-           <img src={data.sprites["front_default"]} alt="pokemon" />
+          <Typography> 
+          <img src={data.sprites["front_default"]} alt="pokemon" />
+           </Typography>
+           <Typography>
             <div className="divTable">
               <div className="divTableBody">
               <div className="divTableRow">
                 <div className="divTableCell">Type</div>
                 <div className="divTableCell">{pokemonType}</div>
               </div>
+              
               <div className="divTableRow">
                 <div className="divTableCell">Height</div>
                 <div className="divTableCell">{" "}{Math.round(data.height * 3.9)}"in</div>
@@ -71,10 +96,17 @@ const handleSubmit = (e) => {
               </div>
               </div>
               </div>
+              </Typography>
            </div>
+           
+           </CardContent>
+           </Card>
+        </Grid>
         )
       })}
     </div>
+    
+
   );
 };
 
