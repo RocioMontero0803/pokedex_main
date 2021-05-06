@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // useEffect
 import "./App.css";
-import { Typography, Card, CardContent, Grid  } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import PokemonCard from "./components/PokemonCard"
+import CardsContainer from "./components/CardsContainer"
 import axios from "axios";
 
 
@@ -46,13 +46,6 @@ const handleSubmit = (e) => {
   e.preventDefault();
   getPokemon();
 }
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 500,
-  }
-}); 
-const classes = useStyles();
-
 
 
   return (
@@ -62,48 +55,16 @@ const classes = useStyles();
           <input type="text" onChange={handleChange} placeholder = "Enter Pokemon Name"/>
         </label>
       </form>
+
       {pokemonData.map((data) => {
         return(
+          <PokemonCard pokemonType={pokemonType} weight={data.weight} height={data.height} sprites={data.sprites}>
 
-          <Grid
-            container
-            spacing={0}
-            alignItems="center"
-            justify="center"
-            style={{ minHeight: "25vh" }}>
-
-          <Card className={classes.root} variant="outlined">
-          <CardContent>
-          <div className ="container">
-          <Typography> 
-          <img src={data.sprites["front_default"]} alt="pokemon" />
-           </Typography>
-           <Typography>
-            <div className="divTable">
-              <div className="divTableBody">
-              <div className="divTableRow">
-                <div className="divTableCell">Type</div>
-                <div className="divTableCell">{pokemonType}</div>
-              </div>
-              
-              <div className="divTableRow">
-                <div className="divTableCell">Height</div>
-                <div className="divTableCell">{" "}{Math.round(data.height * 3.9)}"in</div>
-              </div>
-              <div className="divTableRow">
-                <div className="divTableCell">Weight</div>
-                <div className="divTableCell">{" "} {Math.round(data.weight / 4.3)} lbs</div>
-              </div>
-              </div>
-              </div>
-              </Typography>
-           </div>
-           
-           </CardContent>
-           </Card>
-        </Grid>
+          </PokemonCard>
+     
         )
       })}
+      <CardsContainer> </CardsContainer>
     </div>
     
 
