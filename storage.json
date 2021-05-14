@@ -100,7 +100,8 @@
                     },
                     {
                         "id": "saveAll",
-                        "label": "Save A&&ll"
+                        "label": "Save A&&ll",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1467,8 +1468,8 @@
             "backupPath": "/root/pokedex_main/Backups/5ba810a9352586e2397a596a37bacb35",
             "uiState": {
                 "mode": 1,
-                "x": 0,
-                "y": 62,
+                "x": 343,
+                "y": 44,
                 "width": 1122,
                 "height": 798
             }

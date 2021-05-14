@@ -1,36 +1,12 @@
-/*import React from "react";    
-
-const CardsContainer = () => {
-
-React.useEffect(( )=>{
-    console.log("in cards container")
-},[])
-
-
-    return(
-        <h2>Cards Container</h2>
-
-
-
-    );
-}
-
-export default CardsContainer
-*/import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Grid,
     Card,
     CardMedia,
     CardContent,
-    //Typography,
     CircularProgress,
-   // Toolbar,
-    //AppBar,
-    //TextField,
   } from "@material-ui/core";
-  import { fade, makeStyles } from "@material-ui/core/styles";
-  //import { toFirstCharUppercase } from "./constants";
-  //import SearchIcon from "@material-ui/icons/Search";
+  import { makeStyles } from "@material-ui/core/styles";
   import axios from "axios";
   
   const useStyles = makeStyles((theme) => ({
@@ -44,30 +20,13 @@ import {
     },
     cardContent: {
       textAlign: "center",
-    },
-    searchContainer: {
-      display: "flex",
-      backgroundColor: fade(theme.palette.common.white, 0.15),
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      marginTop: "5px",
-      marginBottom: "5px",
-    },
-    searchIcon: {
-      alignSelf: "flex-end",
-      marginBottom: "5px",
-    },
-    searchInput: {
-      width: "200px",
-      margin: "5px",
-    },
+    }
   }));
   
   const CardsContainer = (props) => {
     const classes = useStyles();
-    //const { history } = props;
     const [pokemonData, setPokemonData] = useState({});
-    const [filter] = useState("");
+    //const [filter] = useState("");
   
     useEffect(() => {
       axios
@@ -79,24 +38,20 @@ import {
           results.forEach((pokemon, index) => {
             newPokemonData[index + 1] = {
               id: index + 1,
-              name: pokemon.name,
-              sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              sprite:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 index + 1
               }.png`,
+              name: pokemon.name,
             };
           });
           setPokemonData(newPokemonData);
         });
     }, []);
   
-    /*const handleSearchChange = (e) => {
-      setFilter(e.target.value);
-    };*/
-  
     const getPokemonCard = (pokemonId) => {
       const { sprite } = pokemonData[pokemonId];
       return (
-        <Grid item xs={4} key={pokemonId}>
+        <Grid item xs={3} key={pokemonId}>
           <Card >
             <CardMedia
               className={classes.cardMedia}
@@ -118,15 +73,15 @@ import {
           <Grid container spacing={2} className={classes.pokedexContainer}>
             {Object.keys(pokemonData).map(
               (pokemonId) =>
-                pokemonData[pokemonId].name.includes(filter) &&
+                pokemonData[pokemonId].name &&
                 getPokemonCard(pokemonId)
             )}
           </Grid>
         ) : (
           <CircularProgress />
         )}
-      </>
-    );
+      </> 
+    ); 
   };
   
   export default CardsContainer;

@@ -64,7 +64,7 @@ const handleSubmit = (e) => {
      
         )
       })}
-      <CardsContainer> </CardsContainer>
+      <CardsContainer></CardsContainer>
     </div>
     
 
