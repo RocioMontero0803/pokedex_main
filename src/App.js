@@ -58,7 +58,8 @@ const handleSubmit = (e) => {
 
       {pokemonData.map((data) => {
         return(
-          <PokemonCard pokemonType={pokemonType} weight={data.weight} height={data.height} sprites={data.sprites}>
+          
+          <PokemonCard pokemonType={pokemonType} weight={data.weight} height={data.height} name={data.name} sprites={data.sprites}>
 
           </PokemonCard>
      

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PokemonCard from "./PokemonCard"
 import {
     Grid,
-    Card,
-    CardMedia,
-    CardContent,
+    //Card,
+    //CardMedia,
+   // CardContent,
     CircularProgress,
   } from "@material-ui/core";
   import { makeStyles } from "@material-ui/core/styles";
@@ -49,20 +50,26 @@ import {
     }, []);
   
     const getPokemonCard = (pokemonId) => {
-      const { sprite } = pokemonData[pokemonId];
+      const { sprite, name } = pokemonData[pokemonId];
       return (
         <Grid item xs={3} key={pokemonId}>
+        <PokemonCard pokemonType={null} weight={null} height={null} sprite={sprite} name={name}>
+
+          </PokemonCard>
+          </Grid>
+        /*<Grid item xs={3} key={pokemonId} onClick={()=>}>
           <Card >
             <CardMedia
               className={classes.cardMedia}
               image={sprite}
               style={{ width: "130px", height: "130px" }}
             />
+
             <CardContent className={classes.cardContent}>
-              
+              <h2>{name}</h2>
             </CardContent>
           </Card>
-        </Grid>
+        </Grid>*/
       );
     };
   
