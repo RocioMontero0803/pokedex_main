@@ -1,5 +1,6 @@
 import React, { useState } from "react"; // useEffect
 import "./App.css";
+import { Grid } from "@material-ui/core";
 import PokemonCard from "./components/PokemonCard"
 import CardsContainer from "./components/CardsContainer"
 import axios from "axios";
@@ -59,11 +60,19 @@ const handleSubmit = (e) => {
       {pokemonData.map((data) => {
         return(
           
-          <PokemonCard pokemonType={pokemonType} weight={data.weight} height={data.height} name={data.name} sprites={data.sprites}>
-
+         
+          <Grid
+           container
+           spacing={0}
+           alignItems="center"
+           justify="center"
+           style={{ minHeight: "25vh" }}>
+          <PokemonCard sprite={data.sprite} pokemonType={pokemonType} weight={data.weight} height={data.height} name={data.name}  >
+            <p><img src={data.sprite} alt=" "/></p>  
           </PokemonCard>
-     
+     </Grid>
         )
+        
       })}
       <CardsContainer></CardsContainer>
     </div>

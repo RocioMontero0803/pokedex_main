@@ -41,7 +41,7 @@ const PokemonCard = (props) => {
           <CardContent>
           <div className ="container">
           <Typography> 
-          <img src={props.sprite} alt="pokemon" />
+          <img src={props.sprite} alt="pokemon" /> 
            </Typography>
            <Typography>
             <div className="divTable">
